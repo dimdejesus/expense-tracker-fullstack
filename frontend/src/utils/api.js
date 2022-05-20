@@ -7,7 +7,7 @@ const axiosInstance = axios.create();
 //instead of axios.get("http://localhost:5000/expenses") -> axios.get("/expenses")
 axiosInstance.interceptors.request.use(
 	async (config) => {
-		config.baseURL = process.env.REACT_APP_BACKEND_URL;
+		config.baseURL = process.env.REACT_APP_API_BASE_URL || "http://localhost:8080/api";
 		return config;
 	},
 	(error) => {
